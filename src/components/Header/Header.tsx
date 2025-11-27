@@ -1,19 +1,22 @@
 import Input from "../Input/Input.tsx";
 import Button from "../Button/Button.tsx";
-import { useSelector } from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import styles from './Header.module.scss'
-import type {RootState} from "../../store/store.ts";
+import type {AppDispatch, RootState} from "../../store/store.ts";
+import { open } from "../../store/slices/isModalOpenSlice.ts";
+
 
 const Header = () => {
     const counterAbsent = useSelector((state: RootState) => state.visitors.visitors.filter(absent => absent.present).length);
     const counterPresent = useSelector((state: RootState) => state.visitors.visitors.filter(absent => !absent.present).length);
+    const dispatch = useDispatch<AppDispatch>();
 
     return (
         <div className={styles.header}>
             <div className={styles.headerLeft}>
                 <img src="/images/logo.svg" width='188' height='90' loading='lazy'/>
                 <Input placeholder={'Поиск по имени'} margin={true} />
-                <Button buttonText={'Добавить'}/>
+                <Button buttonText={'Добавить'} onClick={()=>{dispatch(open())}}/>
             </div>
             <div className={styles.visitors}>
                 <h2>Посетители</h2>

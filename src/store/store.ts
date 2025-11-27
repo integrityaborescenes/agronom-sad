@@ -2,12 +2,14 @@ import { configureStore } from "@reduxjs/toolkit";
 import VisitorSlice from "./slices/visitorSlice.ts";
 import SortedSlice from "./slices/sortedSlice.ts";
 import InputSlice from "./slices/inputSlice.ts";
+import isModalOpenSlice from "./slices/isModalOpenSlice.ts";
 
 export const store = configureStore({
     reducer: {
         visitors: VisitorSlice,
         sortedBy: SortedSlice,
         input: InputSlice,
+        isModelOpen: isModalOpenSlice,
     }
 })
 

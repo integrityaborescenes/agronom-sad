@@ -19,6 +19,7 @@
   background-color: var(--color-red);
 }
 .button p {
+  text-align: center;
   max-width: 113px;
   width: 100%;
   height: 24px;
@@ -28,7 +29,7 @@
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  margin: 11px auto 17px auto;
+  margin: 11px 80px 17px 80px;
 }
 .button:hover {
   transform: scale(1.03);

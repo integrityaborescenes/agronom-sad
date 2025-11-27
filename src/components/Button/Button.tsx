@@ -3,11 +3,15 @@ import styles from './Button.module.scss'
 type Props = {
     buttonText: string
     bgColor?: string
+    form?: boolean
+    onClick?: () => void
 }
 
-const Button = ({buttonText, bgColor}:Props) => {
+const Button = ({buttonText, bgColor, onClick}:Props) => {
+
+
     return (
-        <div className={`
+        <div onClick={onClick} className={`
         ${styles.button}
         ${bgColor === 'red' ? styles.red :
             bgColor === 'gray' ? styles.gray : styles.green}

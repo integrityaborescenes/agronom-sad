@@ -1,10 +1,14 @@
-
+import {createPortal} from 'react-dom'
 import styles from './ModalWindow.module.scss'
 import Input from "../Input/Input.tsx";
 import Button from "../Button/Button.tsx";
 import { useState} from "react";
+import {close} from "../../store/slices/isModalOpenSlice.ts";
+import {useDispatch} from "react-redux";
+import type {AppDispatch} from "../../store/store.ts";
 const ModalWindow = () => {
 
+    const dispatch = useDispatch<AppDispatch>();
     const [selectorOpen, setSelectorOpen] = useState<boolean>(false)
     const [whatSelect, setWhatSelect] = useState<string>('Выбрать')
     let groups: string [] = ['Прохожий', 'Клиент', 'Партнер']
@@ -12,7 +16,7 @@ const ModalWindow = () => {
         setSelectorOpen(prev => !prev)
     }
 
-    return (
+    return createPortal(
         <div className={styles.modalContainer}>
             <div className={styles.modal}>
                 <form className={styles.form}>
@@ -51,11 +55,12 @@ const ModalWindow = () => {
                     </div>
                 </form>
                 <div className={styles.buttons}>
-                    <Button buttonText={'Добавить'} />
-                    <Button buttonText={'Закрыть'} bgColor={'gray'}/>
+                    <Button buttonText={'Добавить'} form={true}/>
+                    <Button buttonText={'Закрыть'} bgColor={'gray'} form={true} onClick={()=>{dispatch(close())}}/>
                 </div>
             </div>
-        </div>
+        </div>,
+        document.getElementById('modal')!
     )
 }
 

@@ -1,4 +1,5 @@
 .modalContainer {
+  z-index: 10;
   position: fixed;
   top: 0;
   left: 0;
@@ -41,6 +42,7 @@
   font-style: normal;
   font-weight: 600;
   line-height: normal;
+  padding-top: 4px;
 }
 .modal .form .formItem {
   max-width: 775px;
@@ -92,6 +94,11 @@
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  background-color: transparent;
+  transition: transform 0.2s ease;
+}
+.modal .form .formItem .selectGroup .selectVariant p:hover {
+  transform: scale(1.01);
 }
 .modal .form .formItem .selectGroup .selectVariant.active {
   display: flex;
@@ -112,7 +119,7 @@
   height: 34px;
   background-color: var(--color-white);
   border: 2px solid #757575;
-  border-radius: 3px;
+  border-radius: 5px;
 }
 .modal .buttons {
   max-width: 580px;

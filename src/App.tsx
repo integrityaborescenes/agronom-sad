@@ -11,6 +11,7 @@ import ModalWindow from "./components/ModalWindow/ModalWindow.tsx";
 function App() {
 
     const dispatch = useDispatch<AppDispatch>();
+    const isModalOpen = useSelector((state: RootState) => state.isModelOpen.value)
     const sortBy = useSelector((state: RootState) => state.sortedBy.sortedBy)
     const searchName = useSelector((state: RootState)=> state.input.inputText)
     useEffect(() => {
@@ -27,7 +28,7 @@ function App() {
   return (
     <>
         <Header />
-        <ModalWindow />
+        {isModalOpen && <ModalWindow/>}
         <Spreadsheet />
         <Footer />
     </>
