@@ -11,7 +11,7 @@ const Input = ({placeholder, margin}:Props) => {
         ${styles.input}
         ${margin ? styles.margin : ''}
         `}>
-            <input type='text' placeholder={placeholder}/>
+            <input type='text' placeholder={placeholder} />
         </div>
     )
 }

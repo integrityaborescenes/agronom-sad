@@ -5,7 +5,7 @@ type sortedSlice = {
 }
 
 const initialState : sortedSlice = {
-    sortedBy: 'none',
+    sortedBy: '',
 };
 
 export const sortedSlice = createSlice({
@@ -13,13 +13,13 @@ export const sortedSlice = createSlice({
     initialState,
     reducers: {
         sortByPresent: (state) => {
-            state.sortedBy = 'present'
+            state.sortedBy = '?present=true'
         },
         sortByAbsent: (state) => {
-            state.sortedBy = 'absent'
+            state.sortedBy = '?present=false'
         },
         resetSorting: (state) => {
-            state.sortedBy = 'none'
+            state.sortedBy = ''
         },
     }
 })

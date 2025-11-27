@@ -12,7 +12,7 @@ const Header = () => {
         <div className={styles.header}>
             <div className={styles.headerLeft}>
                 <img src="/logo.svg" width='188' height='90' loading='lazy'/>
-                <Input placeholder={'Поиск по имени'} margin={true}/>
+                <Input placeholder={'Поиск по имени'} margin={true} />
                 <Button buttonText={'Добавить'}/>
             </div>
             <div className={styles.visitors}>

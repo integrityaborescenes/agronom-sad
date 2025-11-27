@@ -30,16 +30,21 @@
       border: none;
       outline: none;
       cursor: pointer;
+
+      p {
+        color: var(--color-brown);
+        font-family: var(--first-family);
+        font-size: 25px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+      }
+
+      &:active p{
+        color: var(--color-green);
+      }
     }
 
-    p {
-      color: var(--color-brown);
-      font-family: var(--first-family);
-      font-size: 25px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: normal;
-    }
 
     .withoutFilters {
       width: 181px;

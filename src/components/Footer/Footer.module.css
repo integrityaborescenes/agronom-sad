@@ -30,13 +30,16 @@
   outline: none;
   cursor: pointer;
 }
-.footer .filter p {
+.footer .filter button p {
   color: var(--color-brown);
   font-family: var(--first-family);
   font-size: 25px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+}
+.footer .filter button:active p {
+  color: var(--color-green);
 }
 .footer .filter .withoutFilters {
   width: 181px;

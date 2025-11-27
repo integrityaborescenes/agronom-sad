@@ -1,7 +1,6 @@
 .spreadSheets {
   max-width: 1948px;
   width: 100%;
-  height: 1226px;
   display: flex;
   flex-direction: column;
   margin: 34px auto 0 auto;
@@ -54,6 +53,7 @@
   flex-direction: column;
   gap: 30px;
   margin-top: 31px;
+  height: 1226px;
 }
 .spreadSheets tbody tr {
   width: 100%;
