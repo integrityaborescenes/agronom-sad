@@ -1,24 +1,11 @@
 import styles from './Spreadsheet.module.scss'
-import {useEffect, useState} from "react";
+import {useSelector} from "react-redux";
+import type {RootState} from "../../store/store.ts";
 
 const Spreadsheet = () => {
 
-    type Visitors = {
-        id: number,
-        fullName: string,
-        company: string,
-        group: string,
-        present: boolean,
-    }
-
-    const [visitorsInfo, setVisitorsInfo] = useState<Visitors[]>([])
-
-    useEffect(() => {
-        fetch('http://localhost:3000/visitors')
-            .then((response) => response.json())
-            .then((data) => setVisitorsInfo(data))
-    }, []);
-
+    const visitorInfo = useSelector((state: RootState) => state.visitors.visitors);
+    const sortedBy = useSelector((state: RootState) => state.sortedBy.sortedBy);
     return (
         <table className={styles.spreadSheets}>
             <thead>
@@ -32,7 +19,8 @@ const Spreadsheet = () => {
             <tr className={styles.underLine}></tr>
             </thead>
             <tbody>
-            {visitorsInfo.map((info) => (
+            {sortedBy === 'none' &&
+                visitorInfo.map((info) => (
                 <tr key={info.id}>
                     <td className={styles.firstCol}>{info.id}</td>
                     <td className={styles.secondCol}>{info.fullName}</td>
@@ -43,6 +31,30 @@ const Spreadsheet = () => {
                     </td>
                 </tr>
             ))}
+            {sortedBy === 'present' &&
+                [...visitorInfo].sort((a,b) => Number(b.present) - Number(a.present)).map((info) => (
+                    <tr key={info.id}>
+                        <td className={styles.firstCol}>{info.id}</td>
+                        <td className={styles.secondCol}>{info.fullName}</td>
+                        <td className={styles.thirdCol}>{info.company}</td>
+                        <td className={styles.fourthCol}>{info.group}</td>
+                        <td className={styles.fifthCol}>
+                            <div className={`${styles.present} ${info.present ? styles.green : styles.red}`}></div>
+                        </td>
+                    </tr>
+                ))}
+            {sortedBy === 'absent' &&
+                [...visitorInfo].sort((a,b) => Number(a.present) - Number(b.present)).map((info) => (
+                    <tr key={info.id}>
+                        <td className={styles.firstCol}>{info.id}</td>
+                        <td className={styles.secondCol}>{info.fullName}</td>
+                        <td className={styles.thirdCol}>{info.company}</td>
+                        <td className={styles.fourthCol}>{info.group}</td>
+                        <td className={styles.fifthCol}>
+                            <div className={`${styles.present} ${info.present ? styles.green : styles.red}`}></div>
+                        </td>
+                    </tr>
+                ))}
             </tbody>
         </table>
     )

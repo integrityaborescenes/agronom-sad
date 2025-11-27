@@ -5,6 +5,7 @@ import {useEffect} from "react";
 import { useDispatch } from "react-redux";
 import type {AppDispatch} from "./store/store.ts";
 import {setVisitors} from "./store/slices/visitorSlice.ts";
+import Footer from "./components/Footer/Footer.tsx";
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
     <>
         <Header />
         <Spreadsheet />
+        <Footer />
     </>
   )
 }
