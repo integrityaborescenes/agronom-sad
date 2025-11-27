@@ -1,0 +1,16 @@
+:root {
+
+    /* Colors */
+    --color-green: #4CAF50;
+    --color-light-green: #80BB00;
+    --color-red: #EC5937;
+    --color-white: #FFF;
+    --color-gray: #666;
+    --color-light-gray: #737373;
+    --color-black: #000;
+    --color-brown: #4E3000;
+
+    /* Fonts */
+    --first-family: "Open Sans", sans-serif;
+    --second-family: "Roboto", sans-serif;
+}
