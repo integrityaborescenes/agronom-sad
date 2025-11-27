@@ -7,16 +7,24 @@ import {input} from "../../store/slices/inputSlice.ts";
 type Props = {
     placeholder?: string
     margin?: boolean
+    form?:true
 }
 
-const Input = ({placeholder, margin}:Props) => {
+const Input = ({placeholder, margin,form}:Props) => {
     const dispatch = useDispatch<AppDispatch>();
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        if (form !== true) {
+            dispatch(input(e.target.value))
+        }
+    }
     return (
         <div className={`
         ${styles.input}
         ${margin ? styles.margin : ''}
+        ${form ? styles.formInput : ''}
         `}>
-            <input type='text' placeholder={placeholder} onChange={(e: React.ChangeEvent<HTMLInputElement>) => {dispatch(input(e.target.value))}}/>
+            <input type='text' placeholder={placeholder} onChange={handleChange}/>
         </div>
     )
 }

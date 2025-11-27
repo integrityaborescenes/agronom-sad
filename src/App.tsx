@@ -6,6 +6,7 @@ import {useDispatch, useSelector} from "react-redux";
 import type {AppDispatch, RootState} from "./store/store.ts";
 import {setVisitors} from "./store/slices/visitorSlice.ts";
 import Footer from "./components/Footer/Footer.tsx";
+import ModalWindow from "./components/ModalWindow/ModalWindow.tsx";
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
         query.push(sortBy)
         if (searchName) query.push(`fullName_like=${searchName.trim().toLowerCase()}`)
         const queryString = query.length ? '?' + query.join('&') : ''
+
         fetch('http://localhost:3000/visitors' + queryString)
             .then((response) => response.json())
             .then((data) => dispatch(setVisitors(data)))
@@ -25,6 +27,7 @@ function App() {
   return (
     <>
         <Header />
+        <ModalWindow />
         <Spreadsheet />
         <Footer />
     </>

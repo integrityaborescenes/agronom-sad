@@ -1,4 +1,6 @@
 .input {
+  max-width: 394px;
+  width: 100%;
 
   input {
     max-width: 394px;
@@ -9,7 +11,7 @@
     outline: none;
     border-radius: 4px;
     filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.16));
-    padding: 15px 248px 15px 19px;
+    padding: 15px 19px;
 
     color: var(--color-light-gray);
     font-family: var(--first-family);
@@ -17,10 +19,14 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+  }
 
+  &.formInput {
+    max-width: 502px;
 
-    &.formInput {
+    input {
       max-width: 502px;
+      font-size: 20px;
     }
   }
 
