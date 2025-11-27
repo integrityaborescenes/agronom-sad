@@ -12,10 +12,11 @@ const Spreadsheet = () => {
     }
 
     const [visitorsInfo, setVisitorsInfo] = useState<Visitors[]>([])
+
     useEffect(() => {
         fetch('http://localhost:3000/visitors')
             .then((response) => response.json())
-            .then(setVisitorsInfo)
+            .then((data) => setVisitorsInfo(data))
     }, []);
 
     return (

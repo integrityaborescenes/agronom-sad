@@ -1,8 +1,13 @@
 import Input from "../Input/Input.tsx";
 import Button from "../Button/Button.tsx";
+import { useSelector } from "react-redux";
 import styles from './Header.module.scss'
+import type {RootState} from "../../store/store.ts";
 
 const Header = () => {
+    const counterAbsent = useSelector((state: RootState) => state.visitors.visitors.filter(absent => absent.present).length);
+    const counterPresent = useSelector((state: RootState) => state.visitors.visitors.filter(absent => !absent.present).length);
+
     return (
         <div className={styles.header}>
             <div className={styles.headerLeft}>
@@ -14,9 +19,9 @@ const Header = () => {
                 <h2>Посетители</h2>
                 <div className={styles.visitorsCount}>
                     <p>
-                        <span style={{color: 'var(--color-light-green)', marginRight: '4px'}}>280</span>
+                        <span style={{color: 'var(--color-light-green)', marginRight: '4px'}}>{counterAbsent}</span>
                             /
-                        <span style={{color: 'var(--color-red)'}}>35</span>
+                        <span style={{color: 'var(--color-red)'}}>{counterPresent}</span>
                     </p>
                 </div>
             </div>
