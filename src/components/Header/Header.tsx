@@ -1,7 +1,6 @@
-import Button from "../Button/Button.tsx";
-
-import styles from './Header.module.scss'
 import Input from "../Input/Input.tsx";
+import Button from "../Button/Button.tsx";
+import styles from './Header.module.scss'
 
 const Header = () => {
     return (

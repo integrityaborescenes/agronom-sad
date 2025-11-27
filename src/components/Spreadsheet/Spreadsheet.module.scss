@@ -1,0 +1,89 @@
+.spreadSheets {
+  max-width: 1948px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 34px auto 0 auto;
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+    }
+
+    thead {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+
+      .underLine {
+        width: 100%;
+        height: 4px;
+        background-color: #E9E9E9;
+      }
+    }
+
+    th, td {
+      text-align: left;
+    }
+
+    .firstCol { width: 217px; }
+    .secondCol { width: 510px; }
+    .thirdCol { width: 401px; }
+    .fourthCol { width: 658px; }
+
+    tr {
+      height: 27px;
+
+      th {
+        text-align: start;
+        padding: 0;
+        color: var(--color-brown);
+        font-family: var(--first-family);
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+      }
+    }
+
+    tbody {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      margin-top: 31px;
+      tr {
+        width: 100%;
+        height: 59px;
+
+        td {
+          padding: 0;
+          color: var(--color-black);
+          font-family: var(--first-family);
+          font-size: 30px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+
+          .present {
+            width: 59px;
+            height: 59px;
+            border-radius: 30px;
+            background-color: var(--color-light-green);
+
+            &.green {
+              background-color: var(--color-light-green);
+            }
+
+            &.red {
+              background-color: var(--color-red);
+            }
+          }
+        }
+
+      }
+    }
+  }
+
+

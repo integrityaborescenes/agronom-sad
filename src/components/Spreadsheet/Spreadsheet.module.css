@@ -1,0 +1,84 @@
+.spreadSheets {
+  max-width: 1948px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 34px auto 0 auto;
+}
+.spreadSheets table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+.spreadSheets thead {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.spreadSheets thead .underLine {
+  width: 100%;
+  height: 4px;
+  background-color: #E9E9E9;
+}
+.spreadSheets th, .spreadSheets td {
+  text-align: left;
+}
+.spreadSheets .firstCol {
+  width: 217px;
+}
+.spreadSheets .secondCol {
+  width: 510px;
+}
+.spreadSheets .thirdCol {
+  width: 401px;
+}
+.spreadSheets .fourthCol {
+  width: 658px;
+}
+.spreadSheets tr {
+  height: 27px;
+}
+.spreadSheets tr th {
+  text-align: start;
+  padding: 0;
+  color: var(--color-brown);
+  font-family: var(--first-family);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.spreadSheets tbody {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-top: 31px;
+}
+.spreadSheets tbody tr {
+  width: 100%;
+  height: 59px;
+}
+.spreadSheets tbody tr td {
+  padding: 0;
+  color: var(--color-black);
+  font-family: var(--first-family);
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.spreadSheets tbody tr td .present {
+  width: 59px;
+  height: 59px;
+  border-radius: 30px;
+  background-color: var(--color-light-green);
+}
+.spreadSheets tbody tr td .present.green {
+  background-color: var(--color-light-green);
+}
+.spreadSheets tbody tr td .present.red {
+  background-color: var(--color-red);
+}
+
+/*# sourceMappingURL=Spreadsheet.module.css.map */
