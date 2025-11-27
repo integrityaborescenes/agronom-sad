@@ -24,20 +24,17 @@
       }
     }
 
-    th, td {
-      text-align: left;
-    }
-
     .firstCol { width: 217px; }
     .secondCol { width: 510px; }
     .thirdCol { width: 401px; }
     .fourthCol { width: 658px; }
+    .fifthCol {width: 159px;}
 
     tr {
       height: 27px;
 
       th {
-        text-align: start;
+        text-align: left;
         padding: 0;
         color: var(--color-brown);
         font-family: var(--first-family);
@@ -53,11 +50,13 @@
       flex-direction: column;
       gap: 30px;
       margin-top: 31px;
+
       tr {
         width: 100%;
         height: 59px;
 
         td {
+          text-align: start;
           padding: 0;
           color: var(--color-black);
           font-family: var(--first-family);
@@ -70,7 +69,7 @@
             width: 59px;
             height: 59px;
             border-radius: 30px;
-            background-color: var(--color-light-green);
+            margin: 0 auto;
 
             &.green {
               background-color: var(--color-light-green);

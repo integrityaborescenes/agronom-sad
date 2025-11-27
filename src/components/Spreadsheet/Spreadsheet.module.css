@@ -21,9 +21,6 @@
   height: 4px;
   background-color: #E9E9E9;
 }
-.spreadSheets th, .spreadSheets td {
-  text-align: left;
-}
 .spreadSheets .firstCol {
   width: 217px;
 }
@@ -36,11 +33,14 @@
 .spreadSheets .fourthCol {
   width: 658px;
 }
+.spreadSheets .fifthCol {
+  width: 159px;
+}
 .spreadSheets tr {
   height: 27px;
 }
 .spreadSheets tr th {
-  text-align: start;
+  text-align: left;
   padding: 0;
   color: var(--color-brown);
   font-family: var(--first-family);
@@ -60,6 +60,7 @@
   height: 59px;
 }
 .spreadSheets tbody tr td {
+  text-align: start;
   padding: 0;
   color: var(--color-black);
   font-family: var(--first-family);
@@ -72,7 +73,7 @@
   width: 59px;
   height: 59px;
   border-radius: 30px;
-  background-color: var(--color-light-green);
+  margin: 0 auto;
 }
 .spreadSheets tbody tr td .present.green {
   background-color: var(--color-light-green);
