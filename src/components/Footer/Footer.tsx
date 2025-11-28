@@ -3,6 +3,7 @@ import styles from './Footer.module.scss'
 import type {AppDispatch, RootState} from "../../store/store.ts";
 import { sortByPresent, sortByAbsent, resetSorting} from "../../store/slices/sortedSlice.ts";
 import {useDispatch, useSelector} from "react-redux";
+import {inputText} from "../../store/slices/inputSlice.ts";
 const Footer = () => {
 
     const dispatch = useDispatch<AppDispatch>();
@@ -18,7 +19,10 @@ const Footer = () => {
                 <button onClick={()=> dispatch(sortByPresent())}>
                     <p className={`${whatSortedBy==='present=true' ? styles.activeG : ''}`}>Присутствующим</p>
                 </button>
-                <button className={styles.withoutFilters} onClick={()=>dispatch(resetSorting())}>
+                <button className={styles.withoutFilters} onClick={()=> {
+                    dispatch(resetSorting())
+                    dispatch(inputText(''))
+                }}>
                     <p>Без фильтра</p>
                 </button>
             </div>

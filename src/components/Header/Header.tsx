@@ -9,13 +9,14 @@ import { open } from "../../store/slices/isModalOpenSlice.ts";
 const Header = () => {
     const counterAbsent = useSelector((state: RootState) => state.visitors.visitors.filter(absent => absent.present).length);
     const counterPresent = useSelector((state: RootState) => state.visitors.visitors.filter(absent => !absent.present).length);
+    const inputValue = useSelector((state: RootState) => state.input.inputText);
     const dispatch = useDispatch<AppDispatch>();
 
     return (
         <div className={styles.header}>
             <div className={styles.headerLeft}>
                 <img src="/images/logo.svg" width='188' height='90' loading='lazy'/>
-                <Input placeholder={'Поиск по имени'} margin={true} />
+                <Input placeholder={'Поиск по имени'} margin={true} value={inputValue}/>
                 <Button buttonText={'Добавить'} onClick={()=>{dispatch(open())}}/>
             </div>
             <div className={styles.visitors}>
