@@ -6,6 +6,9 @@ import {openEdit} from "../../store/slices/isModalOpenSlice.ts";
 const Spreadsheet = () => {
 
     const visitorInfo = useSelector((state: RootState) => state.visitors.visitors);
+    const whatAnimation = useSelector((state: RootState) => state.whatAnimation.animation);
+    const whatVisitorOpenToEdit = useSelector((state: RootState) => state.isModalOpen.currentVisitor);
+
     const dispatch = useDispatch<AppDispatch>();
 
     return (
@@ -23,7 +26,8 @@ const Spreadsheet = () => {
             <tbody>
             {
                 visitorInfo.map((info) => (
-                <tr key={info.id} onClick={() => dispatch(openEdit(info))}>
+                <tr className={`${whatAnimation === 'delete' && whatVisitorOpenToEdit && whatVisitorOpenToEdit.id === info.id  ? styles.removing : ''}`}
+                    key={info.id} onClick={() => dispatch(openEdit(info))}>
                     <td className={styles.firstCol}>{info.id}</td>
                     <td className={styles.secondCol}>{info.fullName}</td>
                     <td className={styles.thirdCol}>{info.company}</td>

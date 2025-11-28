@@ -7,6 +7,7 @@ import {close} from "../../store/slices/isModalOpenSlice.ts";
 import {useDispatch, useSelector} from "react-redux";
 import type {AppDispatch, RootState} from "../../store/store.ts";
 import {addVisitor, editVisitor, removeVisitor} from "../../store/slices/visitorSlice.ts";
+import {whatAnimation} from "../../store/slices/animationSlice.ts";
 const ModalWindow = () => {
 
     const dispatch = useDispatch<AppDispatch>();
@@ -44,12 +45,16 @@ const ModalWindow = () => {
         const isUserConfirm : boolean = confirm('Вы уверены что хотите удалить пользователя?')
 
         if(isUserConfirm && whatVisitorOpenToEdit) {
-            fetch(`http://localhost:3000/visitors/${whatVisitorOpenToEdit.id}`, {
-                method: 'DELETE',
-            }).then(() => {
-                dispatch(removeVisitor(whatVisitorOpenToEdit))
-                dispatch(close())
-            })
+            dispatch(whatAnimation('delete'))
+            setTimeout(()=> {
+                fetch(`http://localhost:3000/visitors/${whatVisitorOpenToEdit.id}`, {
+                    method: 'DELETE',
+                }).then(() => {
+                    dispatch(removeVisitor(whatVisitorOpenToEdit))
+                    dispatch(close())
+                    dispatch(whatAnimation(''))
+                })
+            },400)
         }
     }
 

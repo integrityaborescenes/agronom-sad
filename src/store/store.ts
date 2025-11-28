@@ -3,6 +3,7 @@ import VisitorSlice from "./slices/visitorSlice.ts";
 import SortedSlice from "./slices/sortedSlice.ts";
 import InputSlice from "./slices/inputSlice.ts";
 import isModalOpenSlice from "./slices/isModalOpenSlice.ts";
+import animationSlice from "./slices/animationSlice.ts";
 
 export const store = configureStore({
     reducer: {
@@ -10,6 +11,7 @@ export const store = configureStore({
         sortedBy: SortedSlice,
         input: InputSlice,
         isModalOpen: isModalOpenSlice,
+        whatAnimation: animationSlice,
     }
 })
 

@@ -54,11 +54,15 @@
   gap: 30px;
   margin-top: 31px;
   height: 1226px;
+  overflow-y: auto;
 }
 .spreadSheets tbody tr {
   width: 100%;
   height: 59px;
   cursor: pointer;
+  transition: opacity 0.4s ease, transform 0.4s ease, margin-bottom 0.4s ease;
+  opacity: 1;
+  transform: translateY(0);
 }
 .spreadSheets tbody tr td {
   text-align: start;
@@ -82,8 +86,13 @@
 .spreadSheets tbody tr td .present.red {
   background-color: var(--color-red);
 }
+.spreadSheets tbody tr.removing {
+  opacity: 0;
+  transform: translateY(-100%);
+  margin-bottom: 0;
+}
 .spreadSheets tbody tr:hover {
-  background-color: lightgray;
+  background: radial-gradient(ellipse at center, rgba(119, 221, 119, 0.2) 0%, rgba(119, 221, 119, 0.15) 30%, rgba(119, 221, 119, 0.08) 60%, rgba(119, 221, 119, 0) 100%);
 }
 
 /*# sourceMappingURL=Spreadsheet.module.css.map */

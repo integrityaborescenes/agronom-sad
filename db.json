@@ -1,6 +1,13 @@
 {
   "visitors": [
     {
+      "id": 1,
+      "fullName": "Иванов Алексей Павлович",
+      "company": "ООО ТехПром",
+      "group": "Клиент",
+      "present": true
+    },
+    {
       "id": 2,
       "fullName": "Ценев Илья Сергеевич",
       "company": "ООО Беларусь Холдинг",
@@ -8,11 +15,11 @@
       "present": false
     },
     {
-      "id": 4,
-      "fullName": "Сергей Григоренко Петрович",
-      "company": "ООО Фрукты Холдинг",
-      "group": "Клиент",
-      "present": true
+      "id": 5,
+      "fullName": "Егорова Светлана Викторовна",
+      "company": "ИП Егоров",
+      "group": "Партнер",
+      "present": false
     }
   ]
 }
