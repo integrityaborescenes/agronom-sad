@@ -26,7 +26,8 @@ const Spreadsheet = () => {
             <tbody>
             {
                 visitorInfo.map((info) => (
-                <tr className={`${whatAnimation === 'delete' && whatVisitorOpenToEdit && whatVisitorOpenToEdit.id === info.id  ? styles.removing : ''}`}
+                <tr className={`
+                ${whatAnimation === 'delete' && whatVisitorOpenToEdit && whatVisitorOpenToEdit.id === info.id  ? styles.removing : ''}`}
                     key={info.id} onClick={() => dispatch(openEdit(info))}>
                     <td className={styles.firstCol}>{info.id}</td>
                     <td className={styles.secondCol}>{info.fullName}</td>

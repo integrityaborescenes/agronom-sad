@@ -92,6 +92,12 @@
           margin-bottom: 0;
         }
 
+        &:last-child {
+          opacity: 0;
+          transform: translateY(-20px);
+          margin-bottom: 0;
+        }
+
         &:hover {
           background: radial-gradient(
                           ellipse at center,

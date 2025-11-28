@@ -51,10 +51,10 @@ const ModalWindow = () => {
                     method: 'DELETE',
                 }).then(() => {
                     dispatch(removeVisitor(whatVisitorOpenToEdit))
-                    dispatch(close())
                     dispatch(whatAnimation(''))
                 })
             },400)
+            dispatch(close())
         }
     }
 

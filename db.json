@@ -20,6 +20,27 @@
       "company": "ИП Егоров",
       "group": "Партнер",
       "present": false
+    },
+    {
+      "id": 6,
+      "fullName": "Владислав Сергеевич Шитов ",
+      "company": "ООО Заносик",
+      "group": "Клиент",
+      "present": true
+    },
+    {
+      "id": 7,
+      "fullName": "пыавпвапвап",
+      "company": "впвап",
+      "group": "Клиент",
+      "present": true
+    },
+    {
+      "id": 10,
+      "fullName": "dsfsdfdsf",
+      "company": "sdfsdf",
+      "group": "Партнер",
+      "present": false
     }
   ]
 }

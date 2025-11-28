@@ -91,6 +91,11 @@
   transform: translateY(-100%);
   margin-bottom: 0;
 }
+.spreadSheets tbody tr:last-child {
+  opacity: 0;
+  transform: translateY(-20px);
+  margin-bottom: 0;
+}
 .spreadSheets tbody tr:hover {
   background: radial-gradient(ellipse at center, rgba(119, 221, 119, 0.2) 0%, rgba(119, 221, 119, 0.15) 30%, rgba(119, 221, 119, 0.08) 60%, rgba(119, 221, 119, 0) 100%);
 }
