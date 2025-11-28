@@ -159,8 +159,9 @@
   }
 
   .buttons {
-    max-width: 580px;
-    width: 100%;
+    min-width: 580px;
+    width: auto;
+    gap: 34px;
     height: 52px;
     display: flex;
     flex-direction: row;

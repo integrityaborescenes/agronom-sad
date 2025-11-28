@@ -27,6 +27,13 @@
       "company": "ООО 1234",
       "group": "Клиент",
       "present": true
+    },
+    {
+      "id": 5,
+      "fullName": "Лера Купаты Вкусные",
+      "company": "ООО Купаты",
+      "group": "Прохожий",
+      "present": true
     }
   ]
 }

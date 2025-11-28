@@ -1,10 +1,12 @@
 import styles from './Spreadsheet.module.scss'
-import {useSelector} from "react-redux";
-import type {RootState} from "../../store/store.ts";
+import {useDispatch, useSelector} from "react-redux";
+import type {AppDispatch, RootState} from "../../store/store.ts";
+import {openEdit} from "../../store/slices/isModalOpenSlice.ts";
 
 const Spreadsheet = () => {
 
     const visitorInfo = useSelector((state: RootState) => state.visitors.visitors);
+    const dispatch = useDispatch<AppDispatch>();
 
     return (
         <table className={styles.spreadSheets}>
@@ -21,7 +23,7 @@ const Spreadsheet = () => {
             <tbody>
             {
                 visitorInfo.map((info) => (
-                <tr key={info.id}>
+                <tr key={info.id} onClick={() => dispatch(openEdit(info))}>
                     <td className={styles.firstCol}>{info.id}</td>
                     <td className={styles.secondCol}>{info.fullName}</td>
                     <td className={styles.thirdCol}>{info.company}</td>

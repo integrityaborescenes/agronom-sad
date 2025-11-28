@@ -1,12 +1,25 @@
-import { createSlice } from "@reduxjs/toolkit";
+import {createSlice, type PayloadAction} from "@reduxjs/toolkit";
 
-interface isModalOpen {
-    value: boolean;
+type Visitor = {
+    id: number,
+    fullName: string,
+    company: string,
+    group: string,
+    present: boolean,
 }
 
-const initialState: isModalOpen = {
+type ModelState = {
+    value: boolean,
+    edit: boolean,
+    currentVisitor?: Visitor,
+
+}
+
+const initialState: ModelState = {
     value: false,
+    edit: false,
 };
+
 
 export const isModalOpenSlice = createSlice({
     name: 'isModalOpen',
@@ -14,12 +27,19 @@ export const isModalOpenSlice = createSlice({
     reducers: {
         open: (state) => {
             state.value = true
+            state.edit = false
         },
         close: (state) => {
             state.value = false
+            state.edit = false
+        },
+        openEdit: (state, action: PayloadAction<Visitor>) => {
+            state.value = true
+            state.edit = true
+            state.currentVisitor = action.payload
         },
     }
 })
 
-export const { open, close } = isModalOpenSlice.actions;
+export const { open, close, openEdit } = isModalOpenSlice.actions;
 export default isModalOpenSlice.reducer;

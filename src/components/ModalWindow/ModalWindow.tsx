@@ -6,19 +6,22 @@ import { useState} from "react";
 import {close} from "../../store/slices/isModalOpenSlice.ts";
 import {useDispatch, useSelector} from "react-redux";
 import type {AppDispatch, RootState} from "../../store/store.ts";
-import {addVisitor, setVisitors} from "../../store/slices/visitorSlice.ts";
+import {addVisitor} from "../../store/slices/visitorSlice.ts";
 const ModalWindow = () => {
 
     const dispatch = useDispatch<AppDispatch>();
     const idCount = useSelector((state: RootState) => state.visitors.visitors.length);
+    const isEditOpen = useSelector((state: RootState) => state.isModelOpen.edit);
+    const whatVisitorOpenToEdit = useSelector((state: RootState) => state.isModelOpen.currentVisitor);
     const [selectorOpen, setSelectorOpen] = useState<boolean>(false)
-    const [whatSelect, setWhatSelect] = useState<string>('Выбрать')
+    const [whatSelect, setWhatSelect] = useState<string>(isEditOpen && whatVisitorOpenToEdit !==undefined ? whatVisitorOpenToEdit.group : 'Выбрать')
     const [isGroupSelectCorrect, setIsGroupSelectCorrect] = useState<string>('')
+    const [isPresent, setIsPresent] = useState(isEditOpen && whatVisitorOpenToEdit ? whatVisitorOpenToEdit.present : false);
     let groups: string [] = ['Прохожий', 'Клиент', 'Партнер']
+
     const handleClick = () => {
         setSelectorOpen(prev => !prev)
     }
-
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
@@ -71,19 +74,31 @@ const ModalWindow = () => {
                 >
                     <div className={styles.formItem}>
                         <label htmlFor="fullName">ФИО</label>
-                        <Input id="fullName" name="fullName" isForm={true} required/>
+                        {isEditOpen && whatVisitorOpenToEdit !== undefined && <Input id="fullName" name="fullName" isForm={true} required value={whatVisitorOpenToEdit.fullName} />}
+                        {isEditOpen !== true && <Input id="fullName" name="fullName" isForm={true} required/>}
                     </div>
                     <div className={styles.formItem} style={{marginBottom: '17px'}}>
                         <label htmlFor='company'>Компания</label>
-                        <Input id="company" name="company" isForm={true} required/>
+                        {isEditOpen && whatVisitorOpenToEdit !== undefined && <Input id="company" name="company" isForm={true} required value={whatVisitorOpenToEdit.company}/>}
+                        {isEditOpen !== true && <Input id="company" name="company" isForm={true} required/>}
                     </div>
                     <div className={styles.formItem} style={{marginBottom: '29px'}}>
                         <label>Группа</label>
                         <div className={styles.selectGroup}>
-                            <div className={`${styles.selected} ${selectorOpen ? styles.active : ''}`} onClick={() => {handleClick(); setWhatSelect('Выбрать')}}>
+                            {isEditOpen && whatVisitorOpenToEdit !== undefined && <div className={`${styles.selected} ${selectorOpen ? styles.active : ''}`} onClick={() => {
+                                handleClick();
+                                setWhatSelect('Выбрать')
+                            }}>
                                 <p>{whatSelect}</p>
                                 <img src='/icons/arrowDownIco.svg' draggable='false' width='10' height='5'/>
-                            </div>
+                            </div>}
+                            {isEditOpen !== true && <div className={`${styles.selected} ${selectorOpen ? styles.active : ''}`} onClick={() => {
+                                handleClick();
+                                setWhatSelect('Выбрать')
+                            }}>
+                                <p>{whatSelect}</p>
+                                <img src='/icons/arrowDownIco.svg' draggable='false' width='10' height='5'/>
+                            </div>}
                             <div className={`${styles.selectVariant} ${selectorOpen ? styles.active : ''}`}>
                                 {groups?.map((gr) => (
                                     <p key={gr} onClick={(e: React.MouseEvent<HTMLParagraphElement>)=> {
@@ -101,12 +116,13 @@ const ModalWindow = () => {
                     <div className={styles.formItem}>
                         <label htmlFor="present">Присутствие</label>
                         <div className={styles.inputCheckBox}>
-                            <input type="checkbox" name="present" id="present"/>
+                            <input type="checkbox" name="present" id="present" checked={isPresent} onChange={() => setIsPresent(prev => !prev)}/>
                         </div>
                     </div>
                 </form>
                 <div className={styles.buttons}>
                     <Button buttonText={'Добавить'} type="submit" form="addUserForm"/>
+                    {isEditOpen && whatVisitorOpenToEdit !== undefined && <Button buttonText={'Удалить'} bgColor={'red'} />}
                     <Button buttonText={'Закрыть'} bgColor={'gray'} onClick={()=>{dispatch(close())}}/>
                 </div>
             </div>
