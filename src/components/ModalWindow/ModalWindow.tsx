@@ -113,7 +113,7 @@ const ModalWindow = () => {
                 dispatch(whatAnimation('add'))
                 setTimeout(() => {
                     dispatch(whatAnimation(''))
-                }, 400)
+                }, 300)
                 dispatch(close())
             }
 

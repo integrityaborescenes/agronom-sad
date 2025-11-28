@@ -27,20 +27,6 @@
       "company": "ООО Данилка",
       "group": "Прохожий",
       "present": true
-    },
-    {
-      "id": 12,
-      "fullName": "ывапывпвы",
-      "company": "ывпывпывпы",
-      "group": "Клиент",
-      "present": false
-    },
-    {
-      "id": 13,
-      "fullName": "Привет как дела ",
-      "company": "авываыва",
-      "group": "Прохожий",
-      "present": false
     }
   ]
 }

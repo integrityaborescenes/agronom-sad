@@ -14,10 +14,10 @@ const Footer = () => {
             <h2>Фильтровать по:</h2>
             <div className={styles.filter}>
                 <button onClick={()=> dispatch(sortByAbsent())}>
-                    <p className={`${whatSortedBy==='present=false' ? styles.activeR : ''}`}>Отсутсвующим</p>
+                    <p className={`${whatSortedBy==='false' ? styles.activeR : ''}`}>Отсутсвующим</p>
                 </button>
                 <button onClick={()=> dispatch(sortByPresent())}>
-                    <p className={`${whatSortedBy==='present=true' ? styles.activeG : ''}`}>Присутствующим</p>
+                    <p className={`${whatSortedBy==='true' ? styles.activeG : ''}`}>Присутствующим</p>
                 </button>
                 <button className={styles.withoutFilters} onClick={()=> {
                     dispatch(resetSorting())
