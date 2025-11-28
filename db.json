@@ -8,11 +8,11 @@
       "present": true
     },
     {
-      "id": 3,
-      "fullName": "Владислав Сергеевич Шитов",
-      "company": "ООО БабайкаХолдинг",
-      "group": "Партнер",
-      "present": true
+      "id": 4,
+      "fullName": "Сергей Григоренко Петрович",
+      "company": "ООО Фрукты Холдинг",
+      "group": "Клиент",
+      "present": false
     }
   ]
 }
