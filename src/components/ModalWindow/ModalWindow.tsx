@@ -6,7 +6,7 @@ import {useEffect, useState} from "react";
 import {close} from "../../store/slices/isModalOpenSlice.ts";
 import {useDispatch, useSelector} from "react-redux";
 import type {AppDispatch, RootState} from "../../store/store.ts";
-import {addVisitor, removeVisitor} from "../../store/slices/visitorSlice.ts";
+import {addVisitor, editVisitor, removeVisitor} from "../../store/slices/visitorSlice.ts";
 const ModalWindow = () => {
 
     const dispatch = useDispatch<AppDispatch>();
@@ -42,7 +42,7 @@ const ModalWindow = () => {
     const handeClickDelete = () => {
         const isUserConfirm : boolean = confirm('Вы уверены что хотите удалить пользователя?')
 
-        if(isUserConfirm && whatVisitorOpenToEdit!==undefined) {
+        if(isUserConfirm && whatVisitorOpenToEdit) {
             fetch(`http://localhost:3000/visitors/${whatVisitorOpenToEdit.id}`, {
                 method: 'DELETE',
             }).then(() => {
@@ -65,29 +65,49 @@ const ModalWindow = () => {
 
         if (whatSelect === 'Выбрать') {
             setIsGroupSelectCorrect('incorrect')
-
         } else {
             setIsGroupSelectCorrect('correct')
             const form = e.currentTarget
             const formData = new FormData(form);
             const data = Object.fromEntries(formData)
 
-            const visitorInfo : userData = {
-                id: idCount + 1,
-                fullName: String(data.fullName),
-                company: String(data.company),
-                group: whatSelect,
-                present: String(data.present) === 'on',
+            if ( isEditOpen && whatVisitorOpenToEdit ) {
+                const updatedVisitorInfo : userData = {
+                    id: whatVisitorOpenToEdit.id,
+                    fullName: String(data.fullName),
+                    company: String(data.company),
+                    group: whatSelect,
+                    present: String(data.present) === 'on',
+                }
+
+                fetch(`http://localhost:3000/visitors/${whatVisitorOpenToEdit.id}`, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json'},
+                    body: JSON.stringify(updatedVisitorInfo)
+                }).then((response) => response.json())
+                    .then((data) => dispatch(editVisitor(data)))
+
+                dispatch(close())
+            } else {
+
+                const visitorInfo : userData = {
+                    id: idCount + 1,
+                    fullName: String(data.fullName),
+                    company: String(data.company),
+                    group: whatSelect,
+                    present: String(data.present) === 'on',
+                }
+
+                fetch('http://localhost:3000/visitors', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json'},
+                    body: JSON.stringify(visitorInfo)
+                }).then((response) => response.json())
+                    .then((data) => dispatch(addVisitor(data)))
+
+                dispatch(close())
             }
 
-            fetch('http://localhost:3000/visitors', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json'},
-                body: JSON.stringify(visitorInfo)
-            }).then((response) => response.json())
-                .then((data) => dispatch(addVisitor(data)))
-
-            dispatch(close())
         }
     }
 
@@ -102,18 +122,18 @@ const ModalWindow = () => {
                 >
                     <div className={styles.formItem}>
                         <label htmlFor="fullName">ФИО</label>
-                        {isEditOpen && whatVisitorOpenToEdit !== undefined && <Input id="fullName" name="fullName" isForm={true} required value={fullName} onChange={(e) => setFullName(e.target.value)}/>}
+                        {isEditOpen && whatVisitorOpenToEdit && <Input id="fullName" name="fullName" isForm={true} required value={fullName} onChange={(e) => setFullName(e.target.value)}/>}
                         {isEditOpen !== true && <Input id="fullName" name="fullName" isForm={true} required/>}
                     </div>
                     <div className={styles.formItem} style={{marginBottom: '17px'}}>
                         <label htmlFor='company'>Компания</label>
-                        {isEditOpen && whatVisitorOpenToEdit !== undefined && <Input id="company" name="company" isForm={true} required value={company} onChange={(e) => setCompany(e.target.value)}/>}
+                        {isEditOpen && whatVisitorOpenToEdit && <Input id="company" name="company" isForm={true} required value={company} onChange={(e) => setCompany(e.target.value)}/>}
                         {isEditOpen !== true && <Input id="company" name="company" isForm={true} required/>}
                     </div>
                     <div className={styles.formItem} style={{marginBottom: '29px'}}>
                         <label>Группа</label>
                         <div className={styles.selectGroup}>
-                            {isEditOpen && whatVisitorOpenToEdit !== undefined && <div className={`${styles.selected} ${selectorOpen ? styles.active : ''}`} onClick={() => {
+                            {isEditOpen && whatVisitorOpenToEdit && <div className={`${styles.selected} ${selectorOpen ? styles.active : ''}`} onClick={() => {
                                 handleClick();
                                 setWhatSelect('Выбрать')
                             }}>
@@ -150,7 +170,7 @@ const ModalWindow = () => {
                 </form>
                 <div className={styles.buttons}>
                     <Button buttonText={'Добавить'} type="submit" form="addUserForm"/>
-                    {isEditOpen && whatVisitorOpenToEdit !== undefined && <Button buttonText={'Удалить'} bgColor={'red'} onClick={handeClickDelete}/>}
+                    {isEditOpen && whatVisitorOpenToEdit && <Button buttonText={'Удалить'} bgColor={'red'} onClick={handeClickDelete}/>}
                     <Button buttonText={'Закрыть'} bgColor={'gray'} onClick={()=>{dispatch(close())}}/>
                 </div>
             </div>

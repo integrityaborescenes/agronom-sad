@@ -1,3 +1,18 @@
 {
-  "visitors": []
+  "visitors": [
+    {
+      "id": 2,
+      "fullName": "Ценев Илья Сергеевич",
+      "company": "ООО Беларусь Холдинг",
+      "group": "Партнер",
+      "present": true
+    },
+    {
+      "id": 3,
+      "fullName": "Владислав Сергеевич Шитов",
+      "company": "ООО БабайкаХолдинг",
+      "group": "Партнер",
+      "present": true
+    }
+  ]
 }
