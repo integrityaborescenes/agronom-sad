@@ -6,7 +6,7 @@ import { useState} from "react";
 import {close} from "../../store/slices/isModalOpenSlice.ts";
 import {useDispatch, useSelector} from "react-redux";
 import type {AppDispatch, RootState} from "../../store/store.ts";
-import {addVisitor} from "../../store/slices/visitorSlice.ts";
+import {addVisitor, removeVisitor} from "../../store/slices/visitorSlice.ts";
 const ModalWindow = () => {
 
     const dispatch = useDispatch<AppDispatch>();
@@ -21,6 +21,18 @@ const ModalWindow = () => {
 
     const handleClick = () => {
         setSelectorOpen(prev => !prev)
+    }
+
+    const handeClickDelete = () => {
+        const isUserConfirm : boolean = confirm('Вы уверены что хотите удалить пользователя?')
+
+        if(isUserConfirm && whatVisitorOpenToEdit!==undefined) {
+            fetch(`http://localhost:3000/visitors/${whatVisitorOpenToEdit.id}`, {
+                method: 'DELETE',
+            }).then(() => dispatch(removeVisitor(whatVisitorOpenToEdit)))
+        }
+
+        dispatch(close())
     }
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -122,7 +134,7 @@ const ModalWindow = () => {
                 </form>
                 <div className={styles.buttons}>
                     <Button buttonText={'Добавить'} type="submit" form="addUserForm"/>
-                    {isEditOpen && whatVisitorOpenToEdit !== undefined && <Button buttonText={'Удалить'} bgColor={'red'} />}
+                    {isEditOpen && whatVisitorOpenToEdit !== undefined && <Button buttonText={'Удалить'} bgColor={'red'} onClick={handeClickDelete}/>}
                     <Button buttonText={'Закрыть'} bgColor={'gray'} onClick={()=>{dispatch(close())}}/>
                 </div>
             </div>

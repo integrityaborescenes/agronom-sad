@@ -22,16 +22,9 @@
       "present": false
     },
     {
-      "id": 4,
-      "fullName": "Данил Григорьевич Жмышенко",
-      "company": "ООО 1234",
-      "group": "Клиент",
-      "present": true
-    },
-    {
-      "id": 5,
-      "fullName": "Лера Купаты Вкусные",
-      "company": "ООО Купаты",
+      "id": 6,
+      "fullName": "Иванов Иван Иванович",
+      "company": "ООО Ромашка",
       "group": "Прохожий",
       "present": true
     }
