@@ -11,22 +11,58 @@ const ModalWindow = () => {
     const dispatch = useDispatch<AppDispatch>();
     const [selectorOpen, setSelectorOpen] = useState<boolean>(false)
     const [whatSelect, setWhatSelect] = useState<string>('Выбрать')
+    const [isGroupSelectCorrect, setIsGroupSelectCorrect] = useState<string>('')
     let groups: string [] = ['Прохожий', 'Клиент', 'Партнер']
     const handleClick = () => {
         setSelectorOpen(prev => !prev)
     }
 
+
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
+
+        type userData = {
+            fullName: string;
+            company: string;
+            group: string;
+            presence: boolean;
+        }
+
+        if (whatSelect === 'Выбрать') {
+            setIsGroupSelectCorrect('incorrect')
+
+        } else {
+            setIsGroupSelectCorrect('coorect')
+            const form = e.currentTarget
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData)
+
+            const visitorInfo : userData = {
+                fullName: String(data.fullName),
+                company: String(data.company),
+                group: String(data.group),
+                presence: String(data.presence) === 'on',
+            }
+
+        }
+    }
+
     return createPortal(
         <div className={styles.modalContainer}>
             <div className={styles.modal}>
-                <form className={styles.form}>
+                <img onClick={()=>{dispatch(close())}} className={styles.closeIco} src='/icons/closeCircleIco.svg' draggable={false} width='46' height='46'></img>
+                <form
+                    id="addUserForm"
+                    className={styles.form}
+                    onSubmit={handleSubmit}
+                >
                     <div className={styles.formItem}>
-                        <label>ФИО</label>
-                        <Input form={true}/>
+                        <label htmlFor="fullName">ФИО</label>
+                        <Input id="fullName" name="fullName" isForm={true} required/>
                     </div>
                     <div className={styles.formItem} style={{marginBottom: '17px'}}>
-                        <label>Компания</label>
-                        <Input form={true}/>
+                        <label htmlFor='company'>Компания</label>
+                        <Input id="company" name="company" isForm={true} required/>
                     </div>
                     <div className={styles.formItem} style={{marginBottom: '29px'}}>
                         <label>Группа</label>
@@ -39,24 +75,26 @@ const ModalWindow = () => {
                                 {groups?.map((gr) => (
                                     <p key={gr} onClick={(e: React.MouseEvent<HTMLParagraphElement>)=> {
                                         setWhatSelect(e.currentTarget.textContent);
+                                        setIsGroupSelectCorrect('correct')
                                         handleClick()
                                     }}>
                                         {gr}
                                     </p>
                                 ))}
                             </div>
+                            { isGroupSelectCorrect === 'incorrect' && <span>Выберите группу из списка</span>}
                         </div>
                     </div>
                     <div className={styles.formItem}>
-                        <label>Присутствие</label>
+                        <label htmlFor="presence">Присутствие</label>
                         <div className={styles.inputCheckBox}>
-                            <input type="checkbox"/>
+                            <input type="checkbox" name="presence" id="presence"/>
                         </div>
                     </div>
                 </form>
                 <div className={styles.buttons}>
-                    <Button buttonText={'Добавить'} form={true}/>
-                    <Button buttonText={'Закрыть'} bgColor={'gray'} form={true} onClick={()=>{dispatch(close())}}/>
+                    <Button buttonText={'Добавить'} type="submit" form="addUserForm"/>
+                    <Button buttonText={'Закрыть'} bgColor={'gray'} onClick={()=>{dispatch(close())}}/>
                 </div>
             </div>
         </div>,

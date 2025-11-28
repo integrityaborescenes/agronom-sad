@@ -1,23 +1,23 @@
 import styles from './Button.module.scss'
 
-type Props = {
+type Props = React.ButtonHTMLAttributes<HTMLButtonElement> & {
     buttonText: string
     bgColor?: string
-    form?: boolean
     onClick?: () => void
+    type?: string
 }
 
-const Button = ({buttonText, bgColor, onClick}:Props) => {
+const Button = ({buttonText, bgColor, onClick, ...rest}:Props) => {
 
 
     return (
-        <div onClick={onClick} className={`
+        <button {...rest} onClick={onClick} className={`
         ${styles.button}
         ${bgColor === 'red' ? styles.red :
             bgColor === 'gray' ? styles.gray : styles.green}
         `}>
             <p>{buttonText}</p>
-        </div>
+        </button>
     )
 }
 

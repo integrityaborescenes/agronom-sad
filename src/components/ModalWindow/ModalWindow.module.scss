@@ -22,10 +22,18 @@
   border-radius: 30px;
   display: flex;
   flex-direction: column;
-  gap: 44px;
   justify-content: center;
   align-items: center;
   padding: 66px 0 53px;
+  position: relative;
+
+  .closeIco {
+    position: absolute;
+    z-index: 20;
+    right: 0;
+    top: 0;
+    margin: 20px;
+  }
 
   .form {
     max-width: 775px;
@@ -54,7 +62,9 @@
       justify-content: space-between;
       align-items: start;
 
+
       .selectGroup {
+        position: relative;
         max-width: 502px;
         width: 100%;
         min-height: 52px;
@@ -66,6 +76,18 @@
         filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.16));
         padding: 5px 31px 6px 23px;
         cursor: pointer;
+
+        span {
+          position: absolute;
+          right: 0;
+          bottom: -35px;
+          color: var(--color-red);
+          font-family: var(--first-family);
+          font-size: 20px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+        }
 
         color: var(--color-black);
         font-family: var(--first-family);
@@ -142,6 +164,7 @@
     height: 52px;
     display: flex;
     flex-direction: row;
+    margin-top: 44px;
     justify-content: space-between;
   }
 }
