@@ -23,9 +23,12 @@ export const visitorSlice = createSlice({
         setVisitors: (state, action: PayloadAction<Visitor[]>) => {
             state.visitors = action.payload;
         },
+        addVisitor: (state, action: PayloadAction<Visitor>) => {
+            state.visitors.push(action.payload)
+        },
     }
 })
 
-export const { setVisitors } = visitorSlice.actions;
+export const { setVisitors, addVisitor } = visitorSlice.actions;
 
 export default visitorSlice.reducer;

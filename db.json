@@ -1,6 +1,5 @@
 {
   "visitors": [
-
     {
       "id": "1",
       "fullName": "Иванов Иван Иванович",
@@ -14,6 +13,20 @@
       "company": "ООО Василёк",
       "group": "Клиент",
       "present": false
+    },
+    {
+      "id": 3,
+      "fullName": "Шитов Владислав Сергеевич",
+      "company": "ООО Картофель",
+      "group": "Клиент",
+      "present": false
+    },
+    {
+      "id": 4,
+      "fullName": "Данил Григорьевич Жмышенко",
+      "company": "ООО 1234",
+      "group": "Клиент",
+      "present": true
     }
   ]
 }

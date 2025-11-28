@@ -4,11 +4,13 @@ import Input from "../Input/Input.tsx";
 import Button from "../Button/Button.tsx";
 import { useState} from "react";
 import {close} from "../../store/slices/isModalOpenSlice.ts";
-import {useDispatch} from "react-redux";
-import type {AppDispatch} from "../../store/store.ts";
+import {useDispatch, useSelector} from "react-redux";
+import type {AppDispatch, RootState} from "../../store/store.ts";
+import {addVisitor, setVisitors} from "../../store/slices/visitorSlice.ts";
 const ModalWindow = () => {
 
     const dispatch = useDispatch<AppDispatch>();
+    const idCount = useSelector((state: RootState) => state.visitors.visitors.length);
     const [selectorOpen, setSelectorOpen] = useState<boolean>(false)
     const [whatSelect, setWhatSelect] = useState<string>('Выбрать')
     const [isGroupSelectCorrect, setIsGroupSelectCorrect] = useState<string>('')
@@ -22,28 +24,39 @@ const ModalWindow = () => {
         e.preventDefault()
 
         type userData = {
+            id: number;
             fullName: string;
             company: string;
             group: string;
-            presence: boolean;
+            present: boolean;
         }
 
         if (whatSelect === 'Выбрать') {
             setIsGroupSelectCorrect('incorrect')
 
         } else {
-            setIsGroupSelectCorrect('coorect')
+            setIsGroupSelectCorrect('correct')
             const form = e.currentTarget
             const formData = new FormData(form);
             const data = Object.fromEntries(formData)
 
             const visitorInfo : userData = {
+                id: idCount + 1,
                 fullName: String(data.fullName),
                 company: String(data.company),
-                group: String(data.group),
-                presence: String(data.presence) === 'on',
+                group: whatSelect,
+                present: String(data.present) === 'on',
             }
 
+
+            fetch('http://localhost:3000/visitors', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json'},
+                body: JSON.stringify(visitorInfo)
+            }).then((response) => response.json())
+                .then((data) => dispatch(addVisitor(data)))
+
+            dispatch(close())
         }
     }
 
@@ -86,9 +99,9 @@ const ModalWindow = () => {
                         </div>
                     </div>
                     <div className={styles.formItem}>
-                        <label htmlFor="presence">Присутствие</label>
+                        <label htmlFor="present">Присутствие</label>
                         <div className={styles.inputCheckBox}>
-                            <input type="checkbox" name="presence" id="presence"/>
+                            <input type="checkbox" name="present" id="present"/>
                         </div>
                     </div>
                 </form>
