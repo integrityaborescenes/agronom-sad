@@ -8,13 +8,6 @@
       "present": true
     },
     {
-      "id": "2",
-      "fullName": "Петров Пётр Петрович",
-      "company": "ООО Василёк",
-      "group": "Клиент",
-      "present": false
-    },
-    {
       "id": 3,
       "fullName": "Шитов Владислав Сергеевич",
       "company": "ООО Картофель",

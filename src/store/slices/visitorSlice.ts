@@ -29,6 +29,9 @@ export const visitorSlice = createSlice({
         removeVisitor: (state, action: PayloadAction<Visitor>) => {
             state.visitors.filter(v=> v.id !== action.payload.id)
         },
+        editVisitor: (state, action: PayloadAction<Visitor>) => {
+            state.visitors.filter(v=> v.id !== action.payload.id)
+        },
     }
 })
 

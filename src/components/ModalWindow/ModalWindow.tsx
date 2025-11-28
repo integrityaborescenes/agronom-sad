@@ -2,7 +2,7 @@ import {createPortal} from 'react-dom'
 import styles from './ModalWindow.module.scss'
 import Input from "../Input/Input.tsx";
 import Button from "../Button/Button.tsx";
-import { useState} from "react";
+import {useEffect, useState} from "react";
 import {close} from "../../store/slices/isModalOpenSlice.ts";
 import {useDispatch, useSelector} from "react-redux";
 import type {AppDispatch, RootState} from "../../store/store.ts";
@@ -14,10 +14,26 @@ const ModalWindow = () => {
     const isEditOpen = useSelector((state: RootState) => state.isModelOpen.edit);
     const whatVisitorOpenToEdit = useSelector((state: RootState) => state.isModelOpen.currentVisitor);
     const [selectorOpen, setSelectorOpen] = useState<boolean>(false)
-    const [whatSelect, setWhatSelect] = useState<string>(isEditOpen && whatVisitorOpenToEdit !==undefined ? whatVisitorOpenToEdit.group : 'Выбрать')
+    const [whatSelect, setWhatSelect] = useState('Выбрать');
+    const [fullName, setFullName] = useState('');
+    const [company, setCompany] = useState('');
+    const [isPresent, setIsPresent] = useState(false);
     const [isGroupSelectCorrect, setIsGroupSelectCorrect] = useState<string>('')
-    const [isPresent, setIsPresent] = useState(isEditOpen && whatVisitorOpenToEdit ? whatVisitorOpenToEdit.present : false);
     let groups: string [] = ['Прохожий', 'Клиент', 'Партнер']
+
+    useEffect(() => {
+        if (isEditOpen && whatVisitorOpenToEdit) {
+            setWhatSelect(whatVisitorOpenToEdit.group);
+            setFullName(whatVisitorOpenToEdit.fullName);
+            setCompany(whatVisitorOpenToEdit.company);
+            setIsPresent(whatVisitorOpenToEdit.present);
+        } else {
+            setWhatSelect('Выбрать');
+            setFullName('');
+            setCompany('');
+            setIsPresent(false);
+        }
+    }, [isEditOpen, whatVisitorOpenToEdit]);
 
     const handleClick = () => {
         setSelectorOpen(prev => !prev)
@@ -29,10 +45,11 @@ const ModalWindow = () => {
         if(isUserConfirm && whatVisitorOpenToEdit!==undefined) {
             fetch(`http://localhost:3000/visitors/${whatVisitorOpenToEdit.id}`, {
                 method: 'DELETE',
-            }).then(() => dispatch(removeVisitor(whatVisitorOpenToEdit)))
+            }).then(() => {
+                dispatch(removeVisitor(whatVisitorOpenToEdit))
+                dispatch(close())
+            })
         }
-
-        dispatch(close())
     }
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -63,7 +80,6 @@ const ModalWindow = () => {
                 present: String(data.present) === 'on',
             }
 
-
             fetch('http://localhost:3000/visitors', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json'},
@@ -86,12 +102,12 @@ const ModalWindow = () => {
                 >
                     <div className={styles.formItem}>
                         <label htmlFor="fullName">ФИО</label>
-                        {isEditOpen && whatVisitorOpenToEdit !== undefined && <Input id="fullName" name="fullName" isForm={true} required value={whatVisitorOpenToEdit.fullName} />}
+                        {isEditOpen && whatVisitorOpenToEdit !== undefined && <Input id="fullName" name="fullName" isForm={true} required value={fullName} onChange={(e) => setFullName(e.target.value)}/>}
                         {isEditOpen !== true && <Input id="fullName" name="fullName" isForm={true} required/>}
                     </div>
                     <div className={styles.formItem} style={{marginBottom: '17px'}}>
                         <label htmlFor='company'>Компания</label>
-                        {isEditOpen && whatVisitorOpenToEdit !== undefined && <Input id="company" name="company" isForm={true} required value={whatVisitorOpenToEdit.company}/>}
+                        {isEditOpen && whatVisitorOpenToEdit !== undefined && <Input id="company" name="company" isForm={true} required value={company} onChange={(e) => setCompany(e.target.value)}/>}
                         {isEditOpen !== true && <Input id="company" name="company" isForm={true} required/>}
                     </div>
                     <div className={styles.formItem} style={{marginBottom: '29px'}}>

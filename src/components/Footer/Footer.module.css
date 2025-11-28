@@ -1,12 +1,13 @@
 .footer {
-  max-width: 1014px;
+  max-width: 1948px;
   width: 100%;
   height: 53px;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
-  margin-left: 50px;
+  justify-content: start;
+  gap: 74px;
+  margin: 0 auto;
 }
 .footer h2 {
   margin: 0;
@@ -38,8 +39,11 @@
   font-weight: 400;
   line-height: normal;
 }
-.footer .filter button:active p {
+.footer .filter button p.activeG {
   color: var(--color-green);
+}
+.footer .filter button p.activeR {
+  color: var(--color-red);
 }
 .footer .filter .withoutFilters {
   width: 181px;
