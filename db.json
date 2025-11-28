@@ -1,25 +1,3 @@
 {
-  "visitors": [
-    {
-      "id": "1",
-      "fullName": "Иванов Иван Иванович",
-      "company": "ООО Ромашка",
-      "group": "Прохожий",
-      "present": true
-    },
-    {
-      "id": 3,
-      "fullName": "Шитов Владислав Сергеевич",
-      "company": "ООО Картофель",
-      "group": "Клиент",
-      "present": false
-    },
-    {
-      "id": 6,
-      "fullName": "Иванов Иван Иванович",
-      "company": "ООО Ромашка",
-      "group": "Прохожий",
-      "present": true
-    }
-  ]
+  "visitors": []
 }

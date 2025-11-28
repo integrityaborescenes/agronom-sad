@@ -12,7 +12,6 @@ function App() {
 
     const dispatch = useDispatch<AppDispatch>();
     const isModalOpen = useSelector((state: RootState) => state.isModelOpen.value)
-    const visitors = useSelector((state: RootState) => state.visitors.visitors)
     const sortBy = useSelector((state: RootState) => state.sortedBy.sortedBy)
     const searchName = useSelector((state: RootState)=> state.input.inputText)
     useEffect(() => {
@@ -24,7 +23,7 @@ function App() {
         fetch('http://localhost:3000/visitors' + queryString)
             .then((response) => response.json())
             .then((data) => dispatch(setVisitors(data)))
-    }, [sortBy, searchName, visitors]);
+    }, [sortBy, searchName]);
 
   return (
     <>
