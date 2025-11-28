@@ -3,16 +3,9 @@
     {
       "id": 1,
       "fullName": "Иванов Алексей Павлович",
-      "company": "ООО ТехПром",
+      "company": "ООО ТехПром 123",
       "group": "Клиент",
       "present": true
-    },
-    {
-      "id": 2,
-      "fullName": "Ценев Илья Сергеевич",
-      "company": "ООО Беларусь Холдинг",
-      "group": "Партнер",
-      "present": false
     },
     {
       "id": 5,
@@ -29,17 +22,24 @@
       "present": true
     },
     {
-      "id": 7,
-      "fullName": "пыавпвапвап",
-      "company": "впвап",
-      "group": "Клиент",
+      "id": 11,
+      "fullName": "Данил Данилович Данилов",
+      "company": "ООО Данилка",
+      "group": "Прохожий",
       "present": true
     },
     {
-      "id": 10,
-      "fullName": "dsfsdfdsf",
-      "company": "sdfsdf",
-      "group": "Партнер",
+      "id": 12,
+      "fullName": "ывапывпвы",
+      "company": "ывпывпывпы",
+      "group": "Клиент",
+      "present": false
+    },
+    {
+      "id": 13,
+      "fullName": "Привет как дела ",
+      "company": "авываыва",
+      "group": "Прохожий",
       "present": false
     }
   ]

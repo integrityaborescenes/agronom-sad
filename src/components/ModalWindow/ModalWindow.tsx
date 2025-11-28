@@ -110,7 +110,10 @@ const ModalWindow = () => {
                     body: JSON.stringify(visitorInfo)
                 }).then((response) => response.json())
                     .then((data) => dispatch(addVisitor(data)))
-
+                dispatch(whatAnimation('add'))
+                setTimeout(() => {
+                    dispatch(whatAnimation(''))
+                }, 400)
                 dispatch(close())
             }
 

@@ -91,7 +91,7 @@
   transform: translateY(-100%);
   margin-bottom: 0;
 }
-.spreadSheets tbody tr:last-child {
+.spreadSheets tbody tr.adding {
   opacity: 0;
   transform: translateY(-20px);
   margin-bottom: 0;
