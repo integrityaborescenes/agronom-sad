@@ -2,7 +2,7 @@ import styles from './Input.module.scss'
 import {useDispatch} from "react-redux";
 import type {AppDispatch} from "../../store/store.ts";
 import * as React from "react";
-import {input} from "../../store/slices/inputSlice.ts";
+import {inputText} from "../../store/slices/inputSlice.ts";
 
 type Props = React.InputHTMLAttributes<HTMLInputElement> & {
     placeholder?: string
@@ -16,7 +16,7 @@ const Input = ({placeholder, margin,isForm,...rest}:Props) => {
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (isForm) {
         }
-        else dispatch(input(e.target.value))
+        else dispatch(inputText(e.target.value))
     }
     return (
         <div className={`

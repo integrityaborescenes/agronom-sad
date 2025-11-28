@@ -31,6 +31,7 @@
       border: none;
       outline: none;
       cursor: pointer;
+      transition: transform 0.2s ease;
 
       p {
         color: var(--color-brown);
@@ -48,6 +49,9 @@
         }
       }
 
+      &:hover {
+        transform: scale(1.03);
+      }
     }
 
 
@@ -58,6 +62,7 @@
       background-color: #C4C4C4;
       text-align: start;
       cursor: pointer;
+      transition: transform 0.2s ease;
 
       p {
         text-align: center;
@@ -72,6 +77,9 @@
 
       }
 
+      &:hover {
+        transform: scale(1.03);
+      }
     }
   }
 }

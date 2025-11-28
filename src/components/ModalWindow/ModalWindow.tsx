@@ -12,8 +12,8 @@ const ModalWindow = () => {
     const dispatch = useDispatch<AppDispatch>();
     const visitors = useSelector((state: RootState) => state.visitors.visitors);
     const idCount = visitors.length > 0 ? visitors[visitors.length-1].id : 0
-    const isEditOpen = useSelector((state: RootState) => state.isModelOpen.edit);
-    const whatVisitorOpenToEdit = useSelector((state: RootState) => state.isModelOpen.currentVisitor);
+    const isEditOpen = useSelector((state: RootState) => state.isModalOpen.edit);
+    const whatVisitorOpenToEdit = useSelector((state: RootState) => state.isModalOpen.currentVisitor);
     const [selectorOpen, setSelectorOpen] = useState<boolean>(false)
     const [whatSelect, setWhatSelect] = useState('Выбрать');
     const [fullName, setFullName] = useState('');

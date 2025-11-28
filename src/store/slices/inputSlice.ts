@@ -12,11 +12,11 @@ export const inputSlice = createSlice({
     name: 'input',
     initialState,
     reducers: {
-        input: (state, action: PayloadAction<string>) => {
+        inputText: (state, action: PayloadAction<string>) => {
             state.inputText = action.payload;
         },
     }
 })
 
-export const { input } = inputSlice.actions;
+export const { inputText } = inputSlice.actions;
 export default inputSlice.reducer;

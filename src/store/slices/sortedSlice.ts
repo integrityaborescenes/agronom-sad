@@ -13,10 +13,10 @@ export const sortedSlice = createSlice({
     initialState,
     reducers: {
         sortByPresent: (state) => {
-            state.sortedBy = 'present=true'
+            state.sortedBy = 'true'
         },
         sortByAbsent: (state) => {
-            state.sortedBy = 'present=false'
+            state.sortedBy = 'false'
         },
         resetSorting: (state) => {
             state.sortedBy = ''
@@ -24,5 +24,5 @@ export const sortedSlice = createSlice({
     }
 })
 
-export const { sortByPresent, sortByAbsent, resetSorting } = sortedSlice.actions;
+export const { sortByPresent, sortByAbsent, resetSorting} = sortedSlice.actions;
 export default sortedSlice.reducer;

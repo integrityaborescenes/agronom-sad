@@ -5,14 +5,14 @@
       "fullName": "Ценев Илья Сергеевич",
       "company": "ООО Беларусь Холдинг",
       "group": "Партнер",
-      "present": true
+      "present": false
     },
     {
       "id": 4,
       "fullName": "Сергей Григоренко Петрович",
       "company": "ООО Фрукты Холдинг",
       "group": "Клиент",
-      "present": false
+      "present": true
     }
   ]
 }

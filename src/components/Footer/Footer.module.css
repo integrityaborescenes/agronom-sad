@@ -30,6 +30,7 @@
   border: none;
   outline: none;
   cursor: pointer;
+  transition: transform 0.2s ease;
 }
 .footer .filter button p {
   color: var(--color-brown);
@@ -45,6 +46,9 @@
 .footer .filter button p.activeR {
   color: var(--color-red);
 }
+.footer .filter button:hover {
+  transform: scale(1.03);
+}
 .footer .filter .withoutFilters {
   width: 181px;
   height: 53px;
@@ -52,6 +56,7 @@
   background-color: #C4C4C4;
   text-align: start;
   cursor: pointer;
+  transition: transform 0.2s ease;
 }
 .footer .filter .withoutFilters p {
   text-align: center;
@@ -63,6 +68,9 @@
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+}
+.footer .filter .withoutFilters:hover {
+  transform: scale(1.03);
 }
 
 /*# sourceMappingURL=Footer.module.css.map */

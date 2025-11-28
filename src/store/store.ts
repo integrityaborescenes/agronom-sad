@@ -9,7 +9,7 @@ export const store = configureStore({
         visitors: VisitorSlice,
         sortedBy: SortedSlice,
         input: InputSlice,
-        isModelOpen: isModalOpenSlice,
+        isModalOpen: isModalOpenSlice,
     }
 })
 
