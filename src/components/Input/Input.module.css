@@ -29,5 +29,27 @@
 .input.margin {
   margin: 0 40px 0 32px;
 }
+@media (max-width: 1920px) {
+  .input {
+    max-width: 262px;
+  }
+  .input input {
+    max-width: 262px;
+    height: 34px;
+    border-radius: 2.6px;
+    padding: 10px 12.6px;
+    font-size: 10.6px;
+  }
+  .input.formInput {
+    max-width: 334px;
+  }
+  .input.formInput input {
+    max-width: 334px;
+    font-size: 16.6px;
+  }
+  .input.margin {
+    margin: 0 26px 0 21px;
+  }
+}
 
 /*# sourceMappingURL=Input.module.css.map */

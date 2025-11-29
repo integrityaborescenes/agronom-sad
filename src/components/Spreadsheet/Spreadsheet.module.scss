@@ -1,11 +1,12 @@
 .spreadSheets {
-  max-width: 1948px;
+  max-width: 1988px;
   width: 100%;
   display: flex;
   flex-direction: column;
   margin: 34px auto 0 auto;
+  padding: 0 20px 0 20px;
 
-    table {
+  table {
       width: 100%;
       border-collapse: collapse;
       table-layout: fixed;
@@ -106,6 +107,67 @@
                           rgba(119, 221, 119, 0.08) 60%,
                           rgba(119, 221, 119, 0) 100%
           );
+        }
+      }
+    }
+
+    @media (max-width: 1920px) {
+      max-width: 1860px;
+      margin: 22.6px auto 0 auto;
+
+      thead {
+        gap: 2px;
+
+        .underLine {
+          height: 2.6px;
+        }
+      }
+
+      .firstCol {
+        width: 201px;
+      }
+      .secondCol {
+        width: 474px;
+      }
+      .thirdCol {
+        width: 372px;
+      }
+      .fourthCol {
+        width: 611px;
+      }
+      .fifthCol {
+        width: 100px;
+      }
+
+      tr {
+        height: 18px;
+
+        th {
+          font-size: 13px;
+        }
+      }
+
+      tbody {
+        gap: 20px;
+        margin-top: 20px;
+        height: 750px;
+
+        tr {
+          height: 39px;
+
+          td {
+            font-size: 20px;
+
+            .present {
+              width: 39px;
+              height: 39px;
+              border-radius: 20px;
+            }
+          }
+
+          &.adding {
+            transform: translateY(-13px);
+          }
         }
       }
     }

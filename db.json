@@ -8,24 +8,17 @@
       "present": true
     },
     {
-      "id": 5,
+      "id": 2,
       "fullName": "Егорова Светлана Викторовна",
       "company": "ИП Егоров",
       "group": "Партнер",
       "present": false
     },
     {
-      "id": 6,
+      "id": 3,
       "fullName": "Владислав Сергеевич Шитов ",
       "company": "ООО Заносик",
       "group": "Клиент",
-      "present": true
-    },
-    {
-      "id": 11,
-      "fullName": "Данил Данилович Данилов",
-      "company": "ООО Данилка",
-      "group": "Прохожий",
       "present": true
     }
   ]

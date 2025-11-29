@@ -134,12 +134,12 @@ const ModalWindow = () => {
                         {isEditOpen && whatVisitorOpenToEdit && <Input id="fullName" name="fullName" isForm={true} required value={fullName} onChange={(e) => setFullName(e.target.value)}/>}
                         {isEditOpen !== true && <Input id="fullName" name="fullName" isForm={true} required/>}
                     </div>
-                    <div className={styles.formItem} style={{marginBottom: '17px'}}>
+                    <div className={`${styles.formItem} ${styles.companyItem}`}>
                         <label htmlFor='company'>Компания</label>
                         {isEditOpen && whatVisitorOpenToEdit && <Input id="company" name="company" isForm={true} required value={company} onChange={(e) => setCompany(e.target.value)}/>}
                         {isEditOpen !== true && <Input id="company" name="company" isForm={true} required/>}
                     </div>
-                    <div className={styles.formItem} style={{marginBottom: '29px'}}>
+                    <div className={`${styles.formItem} ${styles.groupItem}`}>
                         <label>Группа</label>
                         <div className={styles.selectGroup}>
                             {isEditOpen && whatVisitorOpenToEdit && <div className={`${styles.selected} ${selectorOpen ? styles.active : ''}`} onClick={() => {

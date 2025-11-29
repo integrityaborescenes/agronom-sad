@@ -67,6 +67,12 @@
   line-height: normal;
   padding-top: 4px;
 }
+.modal .form .companyItem {
+  margin-bottom: 17px;
+}
+.modal .form .groupItem {
+  margin-bottom: 29px;
+}
 .modal .form .formItem {
   max-width: 775px;
   width: 100%;
@@ -166,6 +172,74 @@
   flex-direction: row;
   align-items: start;
   margin-top: 44px;
+}
+@media (max-width: 1920px) {
+  .modal {
+    max-width: 1043px;
+    min-height: 415px;
+    max-height: 530px;
+    border-radius: 21px;
+    padding: 47px 247px 37px 247px;
+  }
+  .modal .closeIco {
+    max-width: 32px;
+    width: 100%;
+    height: 32px;
+    margin: 14px;
+  }
+  .modal .form {
+    max-width: 553px;
+    min-height: 261px;
+    gap: 28px;
+  }
+  .modal .form label {
+    font-size: 22px;
+    padding-top: 2.8px;
+  }
+  .modal .form .companyItem {
+    margin-bottom: 12px;
+  }
+  .modal .form .groupItem {
+    margin-bottom: 20px;
+  }
+  .modal .form .formItem {
+    max-width: 553px;
+  }
+  .modal .form .formItem .selectGroup {
+    max-width: 334px;
+    min-height: 34px;
+    border-radius: 2.8px;
+    padding: 3.5px 22px 4px 16px;
+  }
+  .modal .form .formItem .selectGroup span {
+    bottom: -25px;
+    font-size: 14px;
+  }
+  .modal .form .formItem .selectGroup {
+    font-size: 17px;
+  }
+  .modal .form .formItem .selectGroup .selectVariant {
+    margin-top: 11px;
+    gap: 14px;
+  }
+  .modal .form .formItem .selectGroup .selectVariant p {
+    font-size: 17px;
+  }
+  .modal .form .inputCheckBox {
+    max-width: 334px;
+    margin: 4px 0 0 0;
+  }
+  .modal .form .inputCheckBox input {
+    max-width: 24px;
+    height: 24px;
+    border: 7px solid #757575;
+    border-radius: 3.5px;
+  }
+  .modal .form .buttons {
+    gap: 24px;
+    height: 37px;
+    margin-top: 31px;
+  }
 }
 
 /*# sourceMappingURL=ModalWindow.module.css.map */

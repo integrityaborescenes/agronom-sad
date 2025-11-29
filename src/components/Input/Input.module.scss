@@ -33,4 +33,30 @@
   &.margin {
     margin: 0 40px 0 32px;
   }
+
+  @media (max-width: 1920px) {
+    max-width: 262px;
+
+    input {
+      max-width: 262px;
+      height: 34px;
+      border-radius: 2.6px;
+      padding: 10px 12.6px;
+
+      font-size: 10.6px;
+    }
+
+    &.formInput {
+      max-width: 334px;
+
+      input {
+        max-width: 334px;
+        font-size: 16.6px;
+      }
+    }
+
+    &.margin {
+      margin: 0 26px 0 21px;
+    }
+  }
 }

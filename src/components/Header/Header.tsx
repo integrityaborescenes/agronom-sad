@@ -15,7 +15,7 @@ const Header = () => {
     return (
         <div className={styles.header}>
             <div className={styles.headerLeft}>
-                <img src="/images/logo.svg" width='188' height='90' loading='lazy'/>
+                <img src="/images/logo.svg" width='188' height='90' loading='lazy' draggable={false}/>
                 <Input placeholder={'Поиск по имени'} margin={true} value={inputValue}/>
                 <Button buttonText={'Добавить'} onClick={()=>{dispatch(open())}}/>
             </div>

@@ -1,9 +1,10 @@
 .spreadSheets {
-  max-width: 1948px;
+  max-width: 1988px;
   width: 100%;
   display: flex;
   flex-direction: column;
   margin: 34px auto 0 auto;
+  padding: 0 20px 0 20px;
 }
 .spreadSheets table {
   width: 100%;
@@ -98,6 +99,58 @@
 }
 .spreadSheets tbody tr:hover {
   background: radial-gradient(ellipse at center, rgba(119, 221, 119, 0.2) 0%, rgba(119, 221, 119, 0.15) 30%, rgba(119, 221, 119, 0.08) 60%, rgba(119, 221, 119, 0) 100%);
+}
+@media (max-width: 1920px) {
+  .spreadSheets {
+    max-width: 1860px;
+    margin: 22.6px auto 0 auto;
+  }
+  .spreadSheets thead {
+    gap: 2px;
+  }
+  .spreadSheets thead .underLine {
+    height: 2.6px;
+  }
+  .spreadSheets .firstCol {
+    width: 201px;
+  }
+  .spreadSheets .secondCol {
+    width: 474px;
+  }
+  .spreadSheets .thirdCol {
+    width: 372px;
+  }
+  .spreadSheets .fourthCol {
+    width: 611px;
+  }
+  .spreadSheets .fifthCol {
+    width: 100px;
+  }
+  .spreadSheets tr {
+    height: 18px;
+  }
+  .spreadSheets tr th {
+    font-size: 13px;
+  }
+  .spreadSheets tbody {
+    gap: 20px;
+    margin-top: 20px;
+    height: 750px;
+  }
+  .spreadSheets tbody tr {
+    height: 39px;
+  }
+  .spreadSheets tbody tr td {
+    font-size: 20px;
+  }
+  .spreadSheets tbody tr td .present {
+    width: 39px;
+    height: 39px;
+    border-radius: 20px;
+  }
+  .spreadSheets tbody tr.adding {
+    transform: translateY(-13px);
+  }
 }
 
 /*# sourceMappingURL=Spreadsheet.module.css.map */

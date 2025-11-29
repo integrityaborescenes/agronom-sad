@@ -36,5 +36,18 @@
 .button:hover {
   transform: scale(1.03);
 }
+@media (max-width: 1920px) {
+  .button {
+    max-width: 182px;
+    height: 34px;
+    border-radius: 3.8px;
+  }
+  .button p {
+    max-width: 75px;
+    height: 16px;
+    font-size: 16px;
+    margin: 7px auto 11px auto;
+  }
+}
 
 /*# sourceMappingURL=Button.module.css.map */

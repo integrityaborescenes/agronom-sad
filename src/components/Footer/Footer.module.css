@@ -1,5 +1,5 @@
 .footer {
-  max-width: 1948px;
+  max-width: 1988px;
   width: 100%;
   height: 53px;
   display: flex;
@@ -8,6 +8,7 @@
   justify-content: start;
   gap: 74px;
   margin: 0 auto;
+  padding: 0 20px 0 20px;
 }
 .footer h2 {
   margin: 0;
@@ -71,6 +72,32 @@
 }
 .footer .filter .withoutFilters:hover {
   transform: scale(1.03);
+}
+@media (max-width: 1920px) {
+  .footer {
+    max-width: 1860px;
+    height: 35px;
+    gap: 49px;
+  }
+  .footer h2 {
+    font-size: 20px;
+  }
+  .footer .filter {
+    gap: 32px;
+  }
+  .footer .filter button p {
+    font-size: 16px;
+  }
+  .footer .filter .withoutFilters {
+    width: 120px;
+    height: 35px;
+    border-radius: 13px;
+  }
+  .footer .filter .withoutFilters p {
+    height: 22px;
+    margin: 5px 10px 8px 9px;
+    font-size: 16px;
+  }
 }
 
 /*# sourceMappingURL=Footer.module.css.map */
