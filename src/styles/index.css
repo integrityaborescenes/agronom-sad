@@ -5,4 +5,7 @@
 body {
     background-color: var(--color-white);
     overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }

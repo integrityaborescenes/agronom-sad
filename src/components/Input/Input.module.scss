@@ -59,4 +59,30 @@
       margin: 0 26px 0 21px;
     }
   }
+
+  @media (max-width: 1300px) {
+    max-width: 174px;
+
+    input {
+      max-width: 174px;
+      height: 22px;
+      border-radius: 1.7px;
+      padding: 6px 8.4px;
+
+      font-size: 7px;
+    }
+
+    &.formInput {
+      max-width: 222px;
+
+      input {
+        max-width: 222px;
+        font-size: 11px;
+      }
+    }
+
+    &.margin {
+      margin: 0 17px 0 14px;
+    }
+  }
 }

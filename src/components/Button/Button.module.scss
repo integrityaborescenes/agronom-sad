@@ -52,5 +52,17 @@
     }
   }
 
+  @media (max-width: 1300px) {
+    max-width: 121px;
+    height: 22px;
+    border-radius: 2.5px;
+
+    p {
+      max-width: 50px;
+      height: 10px;
+      font-size: 10px;
+      margin: 4.6px auto 7px auto;
+    }
+  }
 }
 

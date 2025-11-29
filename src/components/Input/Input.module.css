@@ -51,5 +51,27 @@
     margin: 0 26px 0 21px;
   }
 }
+@media (max-width: 1300px) {
+  .input {
+    max-width: 174px;
+  }
+  .input input {
+    max-width: 174px;
+    height: 22px;
+    border-radius: 1.7px;
+    padding: 6px 8.4px;
+    font-size: 7px;
+  }
+  .input.formInput {
+    max-width: 222px;
+  }
+  .input.formInput input {
+    max-width: 222px;
+    font-size: 11px;
+  }
+  .input.margin {
+    margin: 0 17px 0 14px;
+  }
+}
 
 /*# sourceMappingURL=Input.module.css.map */

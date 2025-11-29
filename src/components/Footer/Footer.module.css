@@ -99,5 +99,31 @@
     font-size: 16px;
   }
 }
+@media (max-width: 1300px) {
+  .footer {
+    max-width: 1240px;
+    height: 23px;
+    gap: 32px;
+  }
+  .footer h2 {
+    font-size: 13px;
+  }
+  .footer .filter {
+    gap: 21px;
+  }
+  .footer .filter button p {
+    font-size: 10px;
+  }
+  .footer .filter .withoutFilters {
+    width: 80px;
+    height: 23px;
+    border-radius: 8.6px;
+  }
+  .footer .filter .withoutFilters p {
+    height: 14.6px;
+    margin: 3.3px 6.6px 5.3px 6px;
+    font-size: 10px;
+  }
+}
 
 /*# sourceMappingURL=Footer.module.css.map */
