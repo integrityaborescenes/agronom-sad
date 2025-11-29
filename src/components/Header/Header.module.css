@@ -117,5 +117,37 @@
     gap: 3px;
   }
 }
+@media (max-width: 700px) {
+  .header {
+    max-width: 640px;
+    height: 22px;
+    margin: 6px auto auto;
+  }
+  .header .headerLeft {
+    max-width: 229px;
+    width: 100%;
+    height: 22px;
+  }
+  .header .headerLeft img {
+    max-width: 46px;
+    width: 100%;
+    height: 22px;
+  }
+  .header .visitors {
+    max-width: 46px;
+    width: 100%;
+    height: 21px;
+    gap: 1px;
+  }
+  .header .visitors h2 {
+    font-size: 7px;
+  }
+  .header .visitors p {
+    font-size: 7px;
+  }
+  .header .visitors .visitorsCount p {
+    gap: 2px;
+  }
+}
 
 /*# sourceMappingURL=Header.module.css.map */

@@ -235,7 +235,7 @@
     border: 7px solid #757575;
     border-radius: 3.5px;
   }
-  .modal .form .buttons {
+  .modal .buttons {
     gap: 24px;
     height: 37px;
     margin-top: 31px;
@@ -303,10 +303,78 @@
     border: 5px solid #757575;
     border-radius: 2px;
   }
-  .modal .form .buttons {
+  .modal .buttons {
     gap: 17px;
     height: 26px;
     margin-top: 22px;
+  }
+}
+@media (max-width: 700px) {
+  .modal {
+    max-width: 414px;
+    min-height: 164px;
+    max-height: 210px;
+    border-radius: 8px;
+    padding: 19px 98px 14px 98px;
+  }
+  .modal .closeIco {
+    max-width: 13px;
+    width: 100%;
+    height: 13px;
+    margin: 6px;
+  }
+  .modal .form {
+    max-width: 219px;
+    min-height: 103px;
+    gap: 11px;
+  }
+  .modal .form label {
+    font-size: 9px;
+    padding-top: 1px;
+  }
+  .modal .form .companyItem {
+    margin-bottom: 5px;
+  }
+  .modal .form .groupItem {
+    margin-bottom: 8px;
+  }
+  .modal .form .formItem {
+    max-width: 219px;
+  }
+  .modal .form .formItem .selectGroup {
+    max-width: 123px;
+    min-height: 13px;
+    border-radius: 1px;
+    padding: 1px 9px 2px 6px;
+  }
+  .modal .form .formItem .selectGroup span {
+    bottom: -10px;
+    font-size: 6px;
+  }
+  .modal .form .formItem .selectGroup {
+    font-size: 7px;
+  }
+  .modal .form .formItem .selectGroup .selectVariant {
+    margin-top: 4px;
+    gap: 6px;
+  }
+  .modal .form .formItem .selectGroup .selectVariant p {
+    font-size: 7px;
+  }
+  .modal .form .inputCheckBox {
+    max-width: 123px;
+    margin: 2px 0 0 0;
+  }
+  .modal .form .inputCheckBox input {
+    max-width: 9px;
+    height: 9px;
+    border: 3px solid #757575;
+    border-radius: 1px;
+  }
+  .modal .buttons {
+    gap: 9px;
+    height: 14px;
+    margin-top: 12px;
   }
 }
 

@@ -147,4 +147,37 @@
       }
     }
   }
+
+  @media (max-width: 700px) {
+    max-width: 640px;
+    height: 13px;
+    gap: 18px;
+
+    h2 {
+      font-size: 7px;
+    }
+
+    .filter {
+      gap: 12px;
+
+      button {
+        p {
+          font-size: 6px;
+        }
+      }
+
+      .withoutFilters {
+        width: 44px;
+        height: 13px;
+        border-radius: 5px;
+
+        p {
+          height: 8px;
+          margin: 2px 4px 3px 3px;
+          font-size: 6px;
+        }
+      }
+    }
+  }
+
 }
