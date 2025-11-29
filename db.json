@@ -16,10 +16,136 @@
     },
     {
       "id": 3,
-      "fullName": "Владислав Сергеевич Шитов ",
+      "fullName": "Владислав Сергеевич Шитов",
       "company": "ООО Заносик",
       "group": "Клиент",
       "present": true
+    },
+    {
+      "id": 4,
+      "fullName": "Петрова Марина Сергеевна",
+      "company": "ООО Альфа",
+      "group": "Клиент",
+      "present": false
+    },
+    {
+      "id": 5,
+      "fullName": "Сидоров Николай Иванович",
+      "company": "ИП Сидоров",
+      "group": "Партнер",
+      "present": true
+    },
+    {
+      "id": 6,
+      "fullName": "Кузнецова Анна Дмитриевна",
+      "company": "ООО Бета",
+      "group": "Клиент",
+      "present": false
+    },
+    {
+      "id": 7,
+      "fullName": "Михайлов Сергей Владимирович",
+      "company": "ООО Гамма",
+      "group": "Партнер",
+      "present": true
+    },
+    {
+      "id": 8,
+      "fullName": "Федорова Ольга Николаевна",
+      "company": "ИП Федоров",
+      "group": "Клиент",
+      "present": false
+    },
+    {
+      "id": 9,
+      "fullName": "Александров Денис Юрьевич",
+      "company": "ООО Дельта",
+      "group": "Партнер",
+      "present": true
+    },
+    {
+      "id": 10,
+      "fullName": "Васильева Елена Петровна",
+      "company": "ООО Энергия",
+      "group": "Клиент",
+      "present": true
+    },
+    {
+      "id": 11,
+      "fullName": "Никитин Павел Александрович",
+      "company": "ИП Никитин",
+      "group": "Партнер",
+      "present": false
+    },
+    {
+      "id": 12,
+      "fullName": "Семенова Татьяна Викторовна",
+      "company": "ООО Зенит",
+      "group": "Клиент",
+      "present": true
+    },
+    {
+      "id": 13,
+      "fullName": "Григорьев Андрей Михайлович",
+      "company": "ООО Омега",
+      "group": "Партнер",
+      "present": false
+    },
+    {
+      "id": 14,
+      "fullName": "Лебедева Юлия Сергеевна",
+      "company": "ИП Лебедев",
+      "group": "Клиент",
+      "present": true
+    },
+    {
+      "id": 15,
+      "fullName": "Козлов Виктор Иванович",
+      "company": "ООО Ромашка",
+      "group": "Партнер",
+      "present": false
+    },
+    {
+      "id": 16,
+      "fullName": "Морозова Наталья Владимировна",
+      "company": "ООО Сфера",
+      "group": "Клиент",
+      "present": true
+    },
+    {
+      "id": 17,
+      "fullName": "Виноградов Сергей Петрович",
+      "company": "ИП Виноградов",
+      "group": "Партнер",
+      "present": true
+    },
+    {
+      "id": 18,
+      "fullName": "Павлова Ирина Алексеевна",
+      "company": "ООО Титан",
+      "group": "Клиент",
+      "present": false
+    },
+    {
+      "id": 19,
+      "fullName": "Орлов Дмитрий Сергеевич",
+      "company": "ООО Форсаж",
+      "group": "Партнер",
+      "present": true
+    },
+    {
+      "id": 20,
+      "fullName": "Зайцева Мария Ивановна",
+      "company": "ИП Зайцев",
+      "group": "Клиент",
+      "present": false
+    },
+    {
+      "id": 21,
+      "fullName": "Светлана Лидова Викторовна",
+      "company": "ИП Свет",
+      "group": "Прохожий",
+      "present": false
     }
   ]
 }
